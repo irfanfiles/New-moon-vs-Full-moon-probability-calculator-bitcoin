@@ -11,6 +11,23 @@ It uses historical price data from Yahoo Finance and lunar phase data from the `
 - *(Optional)* Raw CSV export for detailed data analysis.
 
 ---
+flowchart TD
+    A[Start] --> B[Read CLI parameters]
+    B --> C[Download historical price data (Yahoo Finance)]
+    C --> D[Calculate New & Full Moon dates with ephem]
+    D --> E[Get close prices at start & end of window]
+    E --> F[Calculate returns per event]
+    F --> G1[Generate summary statistics]
+    F --> G2[Plot histograms per category]
+    G1 --> H1[Export CSV summary]
+    G2 --> H2[Export PNG charts]
+    G1 --> I1[Optional: Export raw CSV data]
+    G1 --> J1[Generate PDF report with auto narrative]
+    H1 --> Z[End]
+    H2 --> Z
+    I1 --> Z
+    J1 --> Z
+
 
 ## ✨ Features
 - **Multi-asset support** – works with any ticker available on Yahoo Finance (`--pair BTC-USD`, `ETH-USD`, etc.).
